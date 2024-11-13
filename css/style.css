@@ -1,0 +1,26 @@
+@font-face {
+  font-family: Silkscreen;
+  src: url('/fonts/slkscr.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  background: #171C21;
+}
+
+body {
+  background: transparent;
+  background-size: cover;
+  height: 100vh;
+  padding: 1rem;
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+:link{
+  color:#449EFF;
+}

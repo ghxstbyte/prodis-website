@@ -17,10 +17,21 @@ body {
   background: transparent;
   background-size: cover;
   height: 100vh;
-  padding: 1rem;
   color: #FFF;
   font-family: Arial, Helvetica, sans-serif;
 }
 :link{
   color:#449EFF;
+}
+
+main{
+  padding: 2rem;
+}
+
+footer{
+  background: #FFFFFF;
+  color: #000;
+  padding: 2rem;
+  text-align: center;
+  font-size: 13px;
 }

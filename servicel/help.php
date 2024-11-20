@@ -1,10 +1,16 @@
+<?php
+// Definir variables dinámicas (si las necesitas)
+$lastUpdated = "19 de noviembre de 2024";
+$title = "Servicel - Ayuda";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicel - Ayuda</title>
+  <title><?php echo $title; ?></title>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="/css/style.css">
@@ -22,7 +28,7 @@
     <h2>Ayuda de Servicel</h2>
     <p>En este artículo les presentamos algunas preguntas y respuestas que creemos pueden ser de ayuda a muchos.</p>
     <br>
-    <p style="font-size: 14px; color: darkgray;">Actualizado el 19 de noviembre de 2024</p>
+    <p style="font-size: 14px; color: darkgray;">Actualizado el <?php echo $lastUpdated; ?></p>
 
     <br>
     <h4>1. ¿Qué es Servicel?</h4>
@@ -55,9 +61,7 @@
 </body>
 
 <footer>
-
-  <p>Copyright ©️ - 2024</p>
-
+  <p>Copyright ©️ - <?php echo date("Y"); ?></p>
 </footer>
 
 </html>

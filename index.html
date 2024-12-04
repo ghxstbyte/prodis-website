@@ -25,24 +25,120 @@
 <body>
 
   <main>
+
+    <p>Aplicaciones innovadoras diseñadas para mejorar la experiencia móvil, soluciones prácticas para el día a día y herramientas útiles basadas en las últimas tecnologías. Descubre mis ideas hechas realidad, explora mis proyectos más destacados y conoce mi enfoque en el desarrollo eficiente y creativo. ¡Siente libre de inspirarte y contactar conmigo para colaboraciones!
+    </p>
+
     <!-- lista de proyectos -->
-    <p style="text-align: center; margin-top: 30%; font-size: 40px;">Proyectos</p>
+    <p style="text-align: center; font-size: 40px; margin-top: 10%;">Proyectos</p>
 
-    <!-- Servicel -->
-    <div style="margin-top: 20%; border-radius: 30px; border: 1px solid #fff; padding: 2rem;">
-
-      <div style="text-align: center;">
-        <h2>Servicel</h2>
-        <img src="/images/servicel.png" style="width: 100%; margin-top: 20%;" alt="servicel">
-      </div>
-      <p style="font-size: 13px;">Servicel es una aplicación para dispositivos con Android 6.0 en adelante, que ayuda a los usuarios de la Empresa de Telecomunicaciones de Cuba (ETECSA) a gestionar sus servicios móviles. Usa como referencia los datos del <a href="www.nauta.cu">Portal Nauta</a>.</p>
-
-      <button onclick="window.location.href='https://www.apklis.cu/application/com.arr.simple';"  style="margin-top: 1rem; border-radius: 10px; background: #98FB82; height: 50px; width: 50%; font-size: 14px; color: black;">Descargar</button>
-
+    <!-- carrusel -->
+    <div class="controls">
+      <button id="prev" disabled>&lt; Anterior</button>
+      <span class="counter" id="counter">1/2</span>
+      <button id="next">Siguiente &gt;</button>
     </div>
+
+    <div class="carousel-container">
+      <div class="carousel-track">
+
+        <!-- Servicel -->
+        <div class="carousel-item">
+          <div class="card">
+
+            <div style="text-align: center;">
+              <h2>Servicel</h2>
+
+              <!-- marcadores -->
+              <div class="category">
+                <p class="ship">Java</p>
+
+                <p class="ship">Android</p>
+
+                <p class="ship">Aplicación</p>
+              </div>
+
+              <img src="/images/servicel.png" style="width: 100%; margin-top: 20%;" alt="servicel">
+            </div>
+            <p style="font-size: 14px;">Servicel es una aplicación para dispositivos con Android 6.0 en adelante, que ayuda a los usuarios de la Empresa de Telecomunicaciones de Cuba (ETECSA) a gestionar sus servicios móviles. Usa como referencia los datos del <a href="www.nauta.cu">Portal Nauta</a>.</p>
+
+            <button class="md-button" onclick="window.location.href='https://www.apklis.cu/application/com.arr.simple'" ;>Descargar</button>
+          </div>
+        </div>
+
+
+        <!-- ApklisTool -->
+        <div class="carousel-item">
+          <div class="card">
+
+            <div style="text-align: center;">
+              <h2>ApklisTool</h2>
+
+              <!-- marcadores -->
+              <div class="category">
+                <p class="ship">Java</p>
+                
+                <p class="ship">Librería</p>
+              </div>
+
+
+
+              <img src="/images/screen.png" style="width: 60%; margin-top: 20%;" alt="servicel">
+            </div>
+            <p style="font-size: 14px;">Librería para obtener información de aplicaciones en la tienda de aplicaciones cubana <a href="https://www.apklis.cu">Apklis</a></p>
+
+            <button class="md-button" onclick="window.location.href='https://github.com/ghxstbyte/apklis-api'" ;>GitHub</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end carrusel -->
   </main>
+
+
+  <!-- script -->
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const counter = document.getElementById('counter');
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const width = items[0].clientWidth;
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+
+      counter.textContent = `${currentIndex + 1}/${items.length}`;
+
+      // Disable buttons at boundaries
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex === items.length - 1;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < items.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Ensure the carousel resizes properly
+    window.addEventListener('resize', updateCarousel);
+  </script>
+
 </body>
 <footer>
   <p>© 2024 PRODIS BY ALESSANDRO RODRÍGUEZ<br />SOFTWARE WITH ♥️ FROM SANTA CLARA, CUBA.</p>
 </footer>
+
 </html>
